@@ -1,0 +1,14 @@
+<button type="button" class="btn btn-primary" [routerLink]="['/pets']">Home</button>
+
+<div *ngIf='pet'>
+  <h3>Details about {{pet.name}}</h3>
+
+  <br>
+  <p>Pet type: {{pet.type}}</p>
+  <p>Pet description: {{pet.description}}</p>
+  <p>Pet skills: {{pet.skill1}} / {{pet.skill2}} / {{pet.skill3}}</p>
+  <p>Pet Likes: {{pet.likes}}</p>
+
+  <button type="button" class="btn btn-primary" (click)='adopt()'>Adopt</button>
+  <button [disabled]="clicked" type="button" class="btn btn-primary" (click)='like()'>Like</button>
+</div>

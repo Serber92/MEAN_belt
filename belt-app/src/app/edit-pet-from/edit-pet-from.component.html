@@ -1,0 +1,47 @@
+<h3>Edit this pet</h3>
+<button type="button" class="btn btn-primary" [routerLink]="['/pets']">Home</button>
+
+
+<div *ngIf='newPet' class="card" style="width: 40rem;">
+  <div class="card-body">
+    <form (submit)="onSubmit()">
+      <div class="form-group">
+        <p *ngIf="error">Name exists...</p>
+        <p *ngIf="!name.valid && name.dirty">must be 3 characters long</p>
+        <label>Pet Name</label>
+        <input name='name' type="text" class="form-control" [(ngModel)]="newPet.name"
+        minlength="3" 
+        #name="ngModel"
+        required >
+      </div>
+      <div class="form-group">
+        <p *ngIf="!type.valid && name.dirty">must be 3 characters long</p>
+        <label>Pet Type</label>
+        <input name='type' type="text" class="form-control" [(ngModel)]="newPet.type"
+        minlength="3" 
+        #type="ngModel"
+        required >
+      </div>
+      <div class="form-group">
+        <p *ngIf="!description.valid && name.dirty">must be 3 characters long</p>
+        <label>Description</label>
+        <input name='description' type="text" class="form-control" [(ngModel)]="newPet.description"
+        minlength="3" 
+        #description="ngModel"
+        required >
+      </div>
+      <div class="form-group">
+        <h5>Skills</h5>
+        <br>
+        <label>Skill 1</label>
+        <input name='skill1' type="text" class="form-control"  [(ngModel)]="newPet.skill1">
+        <label>Skill 2</label>
+        <input name='skill2' type="text" class="form-control" [(ngModel)]="newPet.skill2">
+        <label>Skill 3</label>
+        <input name='skill3' type="text" class="form-control" [(ngModel)]="newPet.skill3">
+      </div>
+      <button type="submit" class="btn btn-primary">Edit Pet</button>
+      <button type="button" class="btn btn-primary" [routerLink]="['/pets/new']">Cancel</button>
+    </form>
+  </div>
+</div>
